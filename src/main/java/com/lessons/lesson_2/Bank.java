@@ -1,5 +1,6 @@
-package com.lessons.lesson_2.model;
+package com.lessons.lesson_2;
 
+import com.lessons.lesson_2.model.Client;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,6 +18,7 @@ public class Bank {
     public boolean giveCredit(Client client, double requestMoney) {
         boolean clientExist = !Objects.isNull(client) && clients.contains(client);
         if(!clientExist) {
+            LOG.warning("client does't exist");
             return false;
         }
         //calc how much money client can earn by year + 10%
@@ -27,6 +29,7 @@ public class Bank {
     public boolean giveDeposit(Client client, double requestMoney) {
         boolean clientExist = !Objects.isNull(client) && clients.contains(client);
         if(!clientExist) {
+            LOG.warning("client does't exist");
             return false;
         }
         return requestMoney >= 1000;

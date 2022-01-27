@@ -6,22 +6,33 @@
     <import resource="services.xml" />
 
 
-    <bean id="client1" class="com.lessons.lesson_2.model.Client"/>
-    <bean id="client2" class="com.lessons.lesson_2.model.Client"/>
-    <bean id="client3" class="com.lessons.lesson_2.model.Client"/>
-    <bean id="client4" class="com.lessons.lesson_2.model.Client"/>
+    <bean id="client1" class="com.lessons.lesson_2.model.Client">
+        <property name="name" value="Vasya"/>
+        <property name="monthlySalary" value="600"/>
+    </bean>
+    <bean id="client2" class="com.lessons.lesson_2.model.Client">
+        <property name="name" value="Petya"/>
+        <property name="monthlySalary" value="200"/>
+    </bean>
+    <bean id="client3" class="com.lessons.lesson_2.model.Client">
+        <property name="name" value="Ivan"/>
+        <property name="monthlySalary" value="10"/>
+    </bean>
+    <bean id="client4" class="com.lessons.lesson_2.model.Client">
+        <property name="name" value="Bogdan"/>
+        <property name="monthlySalary" value="100"/>
+    </bean>
 
 
-    <util:list id="subscriberList" scope="singleton" list-class="java.util.ArrayList">
+    <util:list id="clientList" scope="singleton" list-class="java.util.ArrayList">
         <ref bean="client1"/>
         <ref bean="client2"/>
         <ref bean="client3"/>
         <ref bean="client4"/>
     </util:list>
 
-    <bean id="samsungPhone" class="com.lessons.lesson_2.model">
-        <property name="brand" value="Samsung"/>
-        <property name="subscriberList" ref="subscriberList"/>
+    <bean id="Bank" class="com.lessons.lesson_2.Bank">
+        <property name="clients" ref="clientList"/>
         <property name="LOG" ref="myLogger" />
     </bean>
 
