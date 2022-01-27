@@ -29,7 +29,7 @@ public class Bank {
     public boolean giveDeposit(Client client, double requestMoney) {
         boolean clientExist = !Objects.isNull(client) && clients.contains(client);
         if(!clientExist) {
-            LOG.warning("client does't exist");
+            LOG.warning("client does't exist\n");
             return false;
         }
         return requestMoney >= 1000;

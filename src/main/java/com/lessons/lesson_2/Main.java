@@ -16,6 +16,8 @@ public class Main {
         Client client2 = ctx.getBean("client2", Client.class);
         Client client3 = ctx.getBean("client3", Client.class);
         Client client4 = ctx.getBean("client4", Client.class);
+        //
+        Client fakeClient = null;
 
 
         Bank bank = ctx.getBean("Bank", Bank.class);
@@ -24,5 +26,6 @@ public class Main {
         LOG.info(bank.giveDeposit(client3, 6000) + "\n");
         LOG.info(bank.giveCredit(client4, 3000) + "\n");
 
+        LOG.info(bank.giveCredit(fakeClient, 3000) + "\n");
     }
 }
