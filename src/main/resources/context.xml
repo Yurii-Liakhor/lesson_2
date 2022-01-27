@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <import resource="services.xml" />
+
+
+    <bean id="client1" class="com.lessons.lesson_2.model.Client"/>
+    <bean id="client2" class="com.lessons.lesson_2.model.Client"/>
+    <bean id="client3" class="com.lessons.lesson_2.model.Client"/>
+    <bean id="client4" class="com.lessons.lesson_2.model.Client"/>
+
+
+    <util:list id="subscriberList" scope="singleton" list-class="java.util.ArrayList">
+        <ref bean="client1"/>
+        <ref bean="client2"/>
+        <ref bean="client3"/>
+        <ref bean="client4"/>
+    </util:list>
+
+    <bean id="samsungPhone" class="com.lessons.lesson_2.model">
+        <property name="brand" value="Samsung"/>
+        <property name="subscriberList" ref="subscriberList"/>
+        <property name="LOG" ref="myLogger" />
+    </bean>
+
+</beans>
